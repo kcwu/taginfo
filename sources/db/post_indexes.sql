@@ -18,3 +18,6 @@ CREATE        INDEX tag_combinations_key2_value2_idx ON tag_combinations (key2, 
 CREATE UNIQUE INDEX relation_types_rtype_idx ON relation_types (rtype);
 CREATE        INDEX relation_roles_rtype_idx ON relation_roles (rtype);
 
+-- kcwu: create index for (key,value) because I put more tags into db.
+-- kcwu: don't name it tags_key_value_idx otherwise conflict with add_extra_indexes.sql
+CREATE UNIQUE INDEX kcwu_tags_key_value_idx ON tags (key, value);
