@@ -15,12 +15,15 @@
 #
 #------------------------------------------------------------------------------
 
+#CXX = g++48
+CXX = c++
 CXXFLAGS += -O3
 #CXXFLAGS += -g
 #CXXFLAGS += -g -pg
 #CXXFLAGS += -g -fprofile-arcs -ftest-coverage
 CXXFLAGS += -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -std=c++11
 CXXFLAGS += $(shell ../bin/taginfo-config.rb tagstats.cxxflags)
+LDFLAGS += -L/usr/local/lib
 
 GEODISTRIBUTION_TYPE := $(shell ../bin/taginfo-config.rb tagstats.geodistribution_int uint16_t)
 
