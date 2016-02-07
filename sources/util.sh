@@ -11,6 +11,7 @@
 
 set -e
 set -u
+set -x
 
 if [ -f $SRCDIR/util.sh ]; then
     readonly UTILDIR=$SRCDIR
@@ -99,7 +100,7 @@ run_sql() {
 
     print_message_impl "${FUNCNAME[1]}" "$message"
 
-    local SQLITE="sqlite3 -bail -batch -init $UTILDIR/setup.sql $database"
+    local SQLITE="sqlite3 -echo -bail -batch -init $UTILDIR/setup.sql $database"
     if [ ${#macros[@]} -eq 0 ]; then
         $SQLITE <$sql_file
     else

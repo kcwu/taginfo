@@ -9,6 +9,7 @@
 
 set -e
 set -u
+set -x
 
 # uncomment this if you want to get a core file in case tagstats crashes
 #ulimit -c unlimited

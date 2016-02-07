@@ -18,6 +18,7 @@
 
 set -e
 set -u
+set -x
 
 readonly SRCDIR=$(dirname $(readlink -f "$0"))
 readonly DATADIR=$1
@@ -31,7 +32,7 @@ source $SRCDIR/util.sh all
 
 readonly LOGFILE=$(date +%Y%m%dT%H%M)
 mkdir -p $DATADIR/log
-exec >$DATADIR/log/$LOGFILE.log 2>&1
+exec #>$DATADIR/log/$LOGFILE.log 2>&1
 
 if which pbzip2; then
     BZIP_COMMAND=pbzip2
